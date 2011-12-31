@@ -1,0 +1,8 @@
+
+PCF类型推导（Type Inference）算法的实现 
+附件的Haskell程序（pcftyping.hs）定义了PCF的抽象语法，包括PCF类型（PcfType）、PCF项（PcfTerm）、类型模板（Type Template）、类型检查环境（TypeContext）。要求实现PCF的类型推导函数typeInfer，其类型基调为 
+TypeContext -> PcfTerm -> Maybe TypeTemp 
+
+typeInfer函数接收两个参数：类型检查环境和PCF项，根据类型检查环境和PCF类型推导机制计算PCF项（第二个参数）的类型（模板）。如果有合适的类型，则给出其最通用的类型模板（principle type），否则返回Nothing，表示该PCF项在给出的环境中不具有合法的类型。 
+
+注意：不要修改typeInfer函数的类型基调，因为测试程序是严格按照其类型基调进行测试的，如果类型基调被修改了，即使实现了正确的类型推导过程，测试也无法通过。附件的pcftest.hs文件中给出了若干测试用例，在ghci中调用pcftest函数即可。 
